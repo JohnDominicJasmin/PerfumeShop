@@ -8,4 +8,5 @@ public abstract class PerfumeStore{
   public abstract void setTotalFee(double fee);
   public abstract double getTotalPrice();
   public abstract void payTotalPrice();
+
 }
