@@ -3,6 +3,8 @@ import Wrappers.ElegantPerfumeStoreWrapper;
 import Wrappers.OrdinaryPerfumeStoreWrapper;
 import java.util.*;
 
+import Abstractions.PerfumeStore;
+
 class Main {
 
   private static int perfumeShopChoice;
@@ -13,6 +15,9 @@ class Main {
 
     Scanner getInput = new Scanner(System.in);
 
+
+
+do{
     PerfumeShopPrinter.printMainMenu();
 
     try {
@@ -21,72 +26,72 @@ class Main {
       System.out.println("Input invalid");
     }
 
-  do{
     switch (perfumeShopChoice) {
+
       case 1:
-      
+        PerfumeShopPrinter.printElegantPerfumeShopPricesAndPromosMenu();
       try{
-        PerfumeShopPrinter.printOrdinaryPerfumeShopPricesAndPromosMenu();
-        var perfumeStore = new PerfumeStoreProcessor(new ElegantPerfumeStoreWrapper(getInput.nextInt()));
-        perfumeStore.purchasePerfume();
-        PerfumeShopPrinter.printTotalPrice(perfumeStore.getTotalPrice());
-        PerfumeShopPrinter.askFee();
-        perfumeStore.setTotalFee(getInput.nextDouble());
-        perfumeStore.payTotalPrice();
-        perfumeStore.printReceipt();
+          runPerfumeStore(new ElegantPerfumeStoreWrapper(getInput.nextInt()), getInput);
       }catch(RuntimeException e){
         System.out.println(e.getMessage());
       }
    
-        break;
+      break;
 
       case 2:
-
+       PerfumeShopPrinter.printOrdinaryPerfumeShopPricesAndPromosMenu();
        try{
-        PerfumeShopPrinter.printElegantPerfumeShopPricesAndPromosMenu();
-        var perfumeStore = new PerfumeStoreProcessor(new OrdinaryPerfumeStoreWrapper(getInput.nextInt()));
+        runPerfumeStore(new OrdinaryPerfumeStoreWrapper(getInput.nextInt()), getInput);
+      }catch(RuntimeException e){
+        System.out.println(e.getMessage());
+      }
+
+      break;
+        
+      case 3:
+        
+         System.exit(0);
+         getInput.close();
+      
+      break;
+      
+
+      default:
+       System.out.println("Choice doesn't exist!");
+      
+    }
+
+    PerfumeShopPrinter.askToContinue();
+    wishToContinue = getInput.next();
+
+  }while(wishToContinue.equals("Y") || wishToContinue.equals("y"));
+
+  PerfumeShopPrinter.printEnder();
+  getInput.close();
+
+  }
+
+
+
+
+
+
+
+
+
+  private static void runPerfumeStore(PerfumeStore store,Scanner getInput){
+  
+        var perfumeStore = new PerfumeStoreProcessor(store);
         perfumeStore.purchasePerfume();
         PerfumeShopPrinter.printTotalPrice(perfumeStore.getTotalPrice());
         PerfumeShopPrinter.askFee();
         perfumeStore.setTotalFee(getInput.nextDouble());
         perfumeStore.payTotalPrice();
         perfumeStore.printReceipt();
-      }catch(RuntimeException e){
-        System.out.println(e.getMessage());
-      }
-   
-        break;
-
-      
-      default:
-       System.out.println("Choice doesn't exist!");
-    }
-    PerfumeShopPrinter.askToContinue();
-    wishToContinue = getInput.nextLine();
-  }while(wishToContinue == Yes());
-
-  
-
+        perfumeStore.resetPrices();
   }
-
-
-
-
-
-  public static String Yes(){
-    String[] arr = {"Y","y","Yes","yes"};
-    for(String answer:arr){
-      return answer;
-    }
-return "";
-  }
-
   // catch error if pay is insufficient
   // handle error if double,long,int
-  // print success
-  // print thank you for using our system
-  //close scanner
-  //reset prices
   //catch if no amount of bottles bought
   //catch for insuffient funds
 }
