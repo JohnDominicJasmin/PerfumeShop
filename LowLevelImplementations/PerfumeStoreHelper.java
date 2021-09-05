@@ -1,10 +1,7 @@
 package LowLevelImplementations;
 
  public class PerfumeStoreHelper {
-  
-  private final int TEN_ITEMS_OF_PERFUME = 10;
-  private final int FIVE_ITEMS_OF_PERFUME = 5;
-  private final int TWENTY_ITEMS_OF_PERFUME = 20;
+
  
   private int numberOfPurchaseItems;
 
@@ -14,15 +11,15 @@ package LowLevelImplementations;
 
 
   public boolean purchasedBottleExceedsTen() {
-    return numberOfPurchaseItems >= TEN_ITEMS_OF_PERFUME;
+    return numberOfPurchaseItems >= 10;
   }
 
   public boolean purchasedBottleExceedsFive() {
-    return numberOfPurchaseItems >= FIVE_ITEMS_OF_PERFUME;
+    return numberOfPurchaseItems >= 5;
   }
 
   public boolean purchaseBottleExceedsTwenty() {
-    return numberOfPurchaseItems >= TWENTY_ITEMS_OF_PERFUME;
+    return numberOfPurchaseItems >= 20;
   }
 
   public boolean customerBuysNothing() {
