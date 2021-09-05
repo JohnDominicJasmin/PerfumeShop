@@ -54,7 +54,9 @@ askNumberOfPerfume();
 public static void askToContinue(){
     System.out.print("|\t👉 Would you like to use our System again? [Y/n]");
 }
-
+public static void printEnder(){
+   System.out.print("|\t👉 K tnx bye!");
+}
 private static void askNumberOfPerfume(){
   System.out.print("|\t👉 Enter amount of perfume bottle:");
 }
