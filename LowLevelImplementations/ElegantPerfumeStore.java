@@ -68,6 +68,7 @@ public class ElegantPerfumeStore {
     }
   }
 
+
   private void setTotalPrice() {
     totalPrice = ORIGINAL_UNIT_PRICE * numberOfPurchaseItems;
   }

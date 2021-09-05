@@ -29,4 +29,5 @@ elegantPerfumeStore.printReceipt();
 @Override public void payTotalPrice(){
   elegantPerfumeStore.payTotalPrice();
 }
+
 } 

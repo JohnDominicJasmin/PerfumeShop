@@ -36,4 +36,5 @@ public class PerfumeStoreProcessor {
   public void payTotalPrice(){
     perfumeStore.payTotalPrice();
   }
+
 }
