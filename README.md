@@ -1,3 +1,3 @@
 # PerfumeShop
-Console Program Activity
+Console Program Activity\n
 Tryhard using SOLID principles
