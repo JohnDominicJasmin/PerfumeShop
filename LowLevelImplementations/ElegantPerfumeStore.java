@@ -31,6 +31,10 @@ public class ElegantPerfumeStore {
 
   public void printReceipt() {
     // TODO refactor later
+
+    // print  total
+    //print original unit price
+      
     System.out.println("|------------------------------  PERFUME SHOP ------------------------------|");
     System.out.println("|                                                                           |");
     System.out.println("|                                                                           |");

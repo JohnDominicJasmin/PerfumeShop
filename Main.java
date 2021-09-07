@@ -14,59 +14,34 @@ class Main {
   public static void main(String[] args) {
 
     do {
-      PerfumeShopPrinter.printMainMenu();
+      PerfumeShopMenuPrinter.printMainMenu();
 
       try {
         perfumeShopChoice = getInput.nextInt();
       } catch (InputMismatchException e) {
-        PerfumeShopPrinter.printInvalidInput();
+        PerfumeShopMenuPrinter.printInvalidInput();
         break;
       }
 
       switch (perfumeShopChoice) {
 
         case 1:
-          PerfumeShopPrinter.printElegantPerfumeShopPricesAndPromosMenu();
-          PerfumeShopPrinter.askNumberOfPerfume();
-          try {
-
-            int numberOfPerfume = getInput.nextInt();
-            initializePerfumeStore(new ElegantPerfumeStoreWrapper(numberOfPerfume), getInput);
-
-          } catch (InputMismatchException e) {
-            PerfumeShopPrinter.printInvalidInput();
-            System.exit(0);
-          } catch (RuntimeException e) {
-            PerfumeShopPrinter.printRunTimeExceptionError(e.getMessage());
-            System.exit(0);
-          
-          }
-
+          PerfumeShopMenuPrinter.printElegantPerfumeShopPricesAndPromosMenu();
+          PerfumeShopMenuPrinter.askNumberOfPerfume();
+          runElegantPerfumeStore(getInput);
+         
           break;
 
         case 2:
-          PerfumeShopPrinter.printOrdinaryPerfumeShopPricesAndPromosMenu();
-          PerfumeShopPrinter.askNumberOfPerfume();
-          try {
-
-            int numberOfPerfume = getInput.nextInt();
-            initializePerfumeStore(new OrdinaryPerfumeStoreWrapper(numberOfPerfume), getInput);
-
-          } catch (InputMismatchException e) {
-            PerfumeShopPrinter.printInvalidInput();
-            System.exit(0);
-            break;
-          } catch (RuntimeException e) {
-            PerfumeShopPrinter.printRunTimeExceptionError(e.getMessage());
-            System.exit(0);
-            break;
-          }
+          PerfumeShopMenuPrinter.printOrdinaryPerfumeShopPricesAndPromosMenu();
+          PerfumeShopMenuPrinter.askNumberOfPerfume();
+          runOrdinaryPerfumeStore(getInput);
 
           break;
 
         case 3:
 
-          PerfumeShopPrinter.printEnder();
+          PerfumeShopMenuPrinter.printEnder();
           getInput.close();
           System.exit(0);
           break;
@@ -76,25 +51,62 @@ class Main {
 
       }
 
-      PerfumeShopPrinter.askToContinue();
+      PerfumeShopMenuPrinter.askToContinue();
       wishToContinue = getInput.next();
 
     } while (wishToContinue.equals("Y") || wishToContinue.equals("y"));
 
-    PerfumeShopPrinter.printEnder();
+    PerfumeShopMenuPrinter.printEnder();
     getInput.close();
 
   }
 
 
-  private static void runPerfumeStore()
+
+
+
+  private static void runOrdinaryPerfumeStore(Scanner getInput){
+      try {
+
+            int numberOfPerfume = getInput.nextInt();
+            initializePerfumeStore(new OrdinaryPerfumeStoreWrapper(numberOfPerfume), getInput);
+
+          } catch (InputMismatchException e) {
+            PerfumeShopMenuPrinter.printInvalidInput();
+            System.exit(0);
+          } catch (RuntimeException e) {
+            PerfumeShopMenuPrinter.printRunTimeExceptionError(e.getMessage());
+            System.exit(0);
+          
+          }
+
+  }
+
+
+
+  private static void runElegantPerfumeStore(Scanner getInput){
+      try {
+
+            int numberOfPerfume = getInput.nextInt();
+            initializePerfumeStore(new ElegantPerfumeStoreWrapper(numberOfPerfume), getInput);
+
+          } catch (InputMismatchException e) {
+            PerfumeShopMenuPrinter.printInvalidInput();
+            System.exit(0);
+          } catch (RuntimeException e) {
+            PerfumeShopMenuPrinter.printRunTimeExceptionError(e.getMessage());
+            System.exit(0);
+          
+          }
+
+  }
 
   private static void initializePerfumeStore(PerfumeStore store, Scanner getInput) {
 
     var perfumeStore = new PerfumeStoreProcessor(store);
     perfumeStore.purchasePerfume();
-    PerfumeShopPrinter.printTotalPrice(perfumeStore.getTotalPrice());
-    PerfumeShopPrinter.askFee();
+    PerfumeShopMenuPrinter.printTotalPrice(perfumeStore.getTotalPrice());
+    PerfumeShopMenuPrinter.askFee();
     perfumeStore.setTotalFee(getInput.nextDouble());
     perfumeStore.payTotalPrice();
     perfumeStore.printReceipt();

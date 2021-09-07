@@ -1,4 +1,4 @@
-public class PerfumeShopPrinter {
+public class PerfumeShopMenuPrinter {
 
   public static void printMainMenu() {
 
@@ -110,4 +110,18 @@ public class PerfumeShopPrinter {
   public static void printRunTimeExceptionError(String error) {
     System.out.printf("   👉 %s\n", error);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
