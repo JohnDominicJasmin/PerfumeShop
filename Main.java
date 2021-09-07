@@ -70,7 +70,7 @@ class Main {
       try {
 
             int numberOfPerfume = getInput.nextInt();
-            initializePerfumeStore(new OrdinaryPerfumeStoreWrapper(numberOfPerfume), getInput);
+            performOperation(new OrdinaryPerfumeStoreWrapper(numberOfPerfume), getInput);
 
           } catch (InputMismatchException e) {
             PerfumeShopMenuPrinter.printInvalidInput();
@@ -89,7 +89,7 @@ class Main {
       try {
 
             int numberOfPerfume = getInput.nextInt();
-            initializePerfumeStore(new ElegantPerfumeStoreWrapper(numberOfPerfume), getInput);
+            performOperation(new ElegantPerfumeStoreWrapper(numberOfPerfume), getInput);
 
           } catch (InputMismatchException e) {
             PerfumeShopMenuPrinter.printInvalidInput();
@@ -102,7 +102,7 @@ class Main {
 
   }
 
-  private static void initializePerfumeStore(PerfumeStore store, Scanner getInput) {
+  private static void performOperation(PerfumeStore store, Scanner getInput) {
 
     var perfumeStore = new PerfumeStoreProcessor(store);
     perfumeStore.purchasePerfume();

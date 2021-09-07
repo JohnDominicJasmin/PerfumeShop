@@ -31,7 +31,7 @@ public class ElegantPerfumeStore {
 
   public void printReceipt() {
    
-    PerfumeShopReceiptPrinter.printShopName("Elegant Perfume Shop");
+    PerfumeShopReceiptPrinter.printShopName("ELEGANT PERFUME SHOP");
     PerfumeShopReceiptPrinter.printOriginalPrice(ORIGINAL_UNIT_PRICE);
     PerfumeShopReceiptPrinter.printOverallTotal(totalPrice);
 
@@ -42,6 +42,7 @@ public class ElegantPerfumeStore {
     if(discountApplied()){
       PerfumeShopReceiptPrinter.printDiscounts(discountPrice);
     }
+    
   }
 
   public void resetPrices() {
