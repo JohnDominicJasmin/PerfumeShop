@@ -1,5 +1,5 @@
 package LowLevelImplementations;
-
+import Printers.PerfumeShopReceiptPrinter;
 public class ElegantPerfumeStore {
   private final double ORIGINAL_UNIT_PRICE = 250.00;
   private final double PROMO_PRICE_FOR_TEN_PERFUMES = 170.00;
@@ -30,26 +30,18 @@ public class ElegantPerfumeStore {
   }
 
   public void printReceipt() {
-    // TODO refactor later
+   
+    PerfumeShopReceiptPrinter.printShopName("Elegant Perfume Shop");
+    PerfumeShopReceiptPrinter.printOriginalPrice(ORIGINAL_UNIT_PRICE);
+    PerfumeShopReceiptPrinter.printOverallTotal(totalPrice);
 
-    // print  total
-    //print original unit price
-      
-    System.out.println("|------------------------------  PERFUME SHOP ------------------------------|");
-    System.out.println("|                                                                           |");
-    System.out.println("|                                                                           |");
-    System.out.printf(" Number of Items bought: %d        \n", numberOfPurchaseItems);
-    System.out.printf(" Original unit price is: %.2f      \n", ORIGINAL_UNIT_PRICE);
-
-    if (promoApplied()) {
-      System.out.printf(" Promo price is: %.2f              \n", totalPromoPrice);
+    
+    if(promoApplied()){
+      PerfumeShopReceiptPrinter.printPromo(totalPromoPrice);
     }
-    // print total price
-
-    if (discountApplied()) {
-      System.out.printf(" Discount price is: %.2f           \n", discountPrice);
+    if(discountApplied()){
+      PerfumeShopReceiptPrinter.printDiscounts(discountPrice);
     }
-
   }
 
   public void resetPrices() {
@@ -59,6 +51,8 @@ public class ElegantPerfumeStore {
   }
 
   public void setTotalFee(double fee) {
+   
+    
     this.totalFee = fee;
   }
 

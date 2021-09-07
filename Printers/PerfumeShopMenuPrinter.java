@@ -1,3 +1,4 @@
+package Printers;
 public class PerfumeShopMenuPrinter {
 
   public static void printMainMenu() {
@@ -92,7 +93,7 @@ public class PerfumeShopMenuPrinter {
   }
 
   public static void askNumberOfPerfume() {
-    System.out.print("|\t👉 Enter amount of perfume bottle:");
+    System.out.print("|\t👉 How many bottles would you like to purchase?:");
   }
 
   public static void printTotalPrice(double totalPrice) {
@@ -107,9 +108,7 @@ public class PerfumeShopMenuPrinter {
     System.out.println("   👉 Choice doesn't exist!");
   }
 
-  public static void printRunTimeExceptionError(String error) {
-    System.out.printf("   👉 %s\n", error);
-  }
+ 
 
 
 

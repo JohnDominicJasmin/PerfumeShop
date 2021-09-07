@@ -1,3 +1,4 @@
+import Printers.PerfumeShopMenuPrinter;
 import HighLevelImplementation.PerfumeStoreProcessor;
 import Wrappers.ElegantPerfumeStoreWrapper;
 import Wrappers.OrdinaryPerfumeStoreWrapper;
@@ -74,8 +75,8 @@ class Main {
           } catch (InputMismatchException e) {
             PerfumeShopMenuPrinter.printInvalidInput();
             System.exit(0);
-          } catch (RuntimeException e) {
-            PerfumeShopMenuPrinter.printRunTimeExceptionError(e.getMessage());
+          } catch (RuntimeException error) {
+            System.out.printf("   👉 %s\n", error.getMessage());
             System.exit(0);
           
           }
@@ -94,7 +95,7 @@ class Main {
             PerfumeShopMenuPrinter.printInvalidInput();
             System.exit(0);
           } catch (RuntimeException e) {
-            PerfumeShopMenuPrinter.printRunTimeExceptionError(e.getMessage());
+            System.out.printf("   👉 %s\n", e.getMessage());
             System.exit(0);
           
           }
